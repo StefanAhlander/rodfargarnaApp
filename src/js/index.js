@@ -3,7 +3,6 @@ import Data from './models/Data';
 import * as listView from './views/listView';
 import * as customerView from './views/customerView';
 import * as signInView from './views/signInView';
-import { elements } from './views/base';
 
 // Skapa ett objekt för att hålla appens "state"
 const state = {};
