@@ -12,14 +12,6 @@ export default class Data {
     // Firebase konfiguration
     const firebaseConfig = appConfig.firebaseConfig;
 
-    /*     {
-          apiKey: 'AIzaSyB5EkvKLpBeCiNAcratI-GwBcU1F-yc9xs',
-          authDomain: 'rodfargarnadev2.firebaseapp.com',
-          databaseURL: 'https://rodfargarnadev2.firebaseio.com',
-          projectId: 'rodfargarnadev2',
-          storageBucket: 'rodfargarnadev2.appspot.com',
-          messagingSenderId: '775572118630',
-        }; */
 
     //Initialisera Firebase och lagra firebase i state
     firebase.initializeApp(firebaseConfig);
