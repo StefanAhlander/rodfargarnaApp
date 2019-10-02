@@ -10,10 +10,6 @@ window.state = state;
 
 const data = new Data();
 
-// Automatisk inloggning för utveckling
-/* data.signInUser('a@a.com', 'aaaaaa');
-console.log('Ran auto login.'); */
-
 // ###################################################
 // ###################################################
 // ###################################################
@@ -51,7 +47,6 @@ function filterArray(customerArray) {
 /* Funktion för att dela upp kundlistan utifrån antal kunder per sida och sidnummer. */
 function paginateArray(filteredArray) {
   return new Promise(function(resolve, reject) {
-    console.log(`aktuellt sidnummer: ${state.page}`);
 
     let startIndex = (state.page - 1) * data.numCustomersPerPage;
     let endIndex = state.page * data.numCustomersPerPage;
@@ -108,7 +103,6 @@ function saveCustomer(event) {
   }
 
   // Spara kunddata till databasen
-  console.log(`Spara kund: ${state.customerId}`);
   data.saveCustomerData(cust).then(result => {
     state.customerDataList[state.customerId] = state.customerData;
     state.customerArray = undefined;
@@ -126,7 +120,6 @@ const controlRoute = () => {
 
   // Kontrollera om användaren har navigerat till login-sidan och om denne inte är inloggad. Om så visa login-sidan och starta login-controllern
   data.userIsLoggedIn().then(isLoggedIn => {
-    console.log(`Användaren är inloggad? ${isLoggedIn}`);
 
     if (!isLoggedIn) {
       if (currentHash === 'signInView') {
@@ -147,7 +140,6 @@ const controlRoute = () => {
         location.hash = 'listView';
         return;
       }
-      console.log(`Kundid: ${customerId}`);
       customerController(customerId);
       return;
     }
@@ -221,7 +213,6 @@ const listController = () => {
             document
               .getElementById('filterInput')
               .removeEventListener('keyup', filterHandeler);
-            console.log(`Ändring av filter input, filter är: ${state.filter}`);
             state.filter = event.target.value;
             state.page = 1;
             listView.removeList();

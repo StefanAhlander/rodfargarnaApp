@@ -17,7 +17,7 @@ export const renderSignInView = () => {
                 </div>
                 <div class="form-group">
                   <label for="password" class="text-info">Password:</label><br />
-                  <input type="text" name="password" id="password" class="form-control" />
+                  <input type="password" name="password" id="password" class="form-control" />
                 </div>
                 <div class="form-group">
                   <input type="submit" name="submit" id="signin" class="btn btn-info btn-md" value="submit" />
