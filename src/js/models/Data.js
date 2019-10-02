@@ -39,7 +39,6 @@ export default class Data {
           } else {
             alert(errorMessage);
           }
-          console.log(error);
           // [END_EXCLUDE]
         })
         // [END authwithemail]);
@@ -50,7 +49,7 @@ export default class Data {
   userIsLoggedIn() {
     // Returnera true om användaren är inloggad
     return new Promise(function (resolve, reject) {
-      resolve(firebase.auth().currentUser !== null);
+      resolve(firebase.auth().currentUser);
     });
   }
 
@@ -66,7 +65,6 @@ export default class Data {
     return new Promise(function (resolve, reject) {
       if (state.customerDataList) resolve(state.customerDataList);
       data.firebaseDb.ref('customers').orderByKey().once('value').then(function (snapshot) {
-        console.log(`Färdig med nedladdning av kunddata: ${snapshot.val()}`);
         resolve(state.customerDataList = snapshot.val());
       });
     });
@@ -85,7 +83,6 @@ export default class Data {
             customerArray.push(customerData[cust]);
           }
         }
-        console.log(`Finished compiling customersArray.`);
         resolve(state.customerArray = customerArray.reverse());
       });
     });

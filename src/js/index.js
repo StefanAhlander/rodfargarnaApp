@@ -121,7 +121,10 @@ const controlRoute = () => {
   // Kontrollera om användaren har navigerat till login-sidan och om denne inte är inloggad. Om så visa login-sidan och starta login-controllern
   data.userIsLoggedIn().then(isLoggedIn => {
 
-    if (!isLoggedIn) {
+    console.log ("Value of isLoggedIn: ");
+    console.log(isLoggedIn);
+
+    if (isLoggedIn === null) {
       if (currentHash === 'signInView') {
         signInView.renderSignInView();
         signInController();
